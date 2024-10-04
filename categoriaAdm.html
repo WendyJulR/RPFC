@@ -85,61 +85,15 @@
 		</nav>
 		<!-- Content page -->
 		
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4">
-					<h1 class="titulo1">Subir Imagen</h1>
-					<hr>
-					<br>
-					
-					<form action="Backend/subir.php" method="post" enctype="multipart/form-data">
-					<div class="form-group">
-						<label for="my-input">Selecciona Una Imágen</label>
-						<input id="my-input" type="file" name="imagen" class="archivo">
-					</div>
-					<br>
-	
-					<div class="form-group">
-						<label for="my-input">Título De La Imágen</label>
-						<input id="my-input" class="form-control" type="text" name="titulo">  
-					</div>
-			  
-	
-					  <?php if(isset ($_SESSION['mensaje'])){ ?>
-					  <div class="alert alert-<php echo $_SESSION['tipo'] ?> alert-dismissible fade show" role="alert">
-						<strong><?php echo $_SESSION['mensaje']; ?> </strong> 
-						
-						<button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" >
-						</button>
-				
-					  </div>
-						<?php session_unset(); } ?>
-						<br>
-						<input type="submit" value="Guardar" class="boton" name="Guardar" >
-					</form>
-				</div>
-				<div class="col-lg-8">
-					<h1 class="galeria"> Galería De Imágenes</h1>
-				
-					<hr>
-					<br>
-					<div class="row row-cols-1 row-cols-md-3 g-4">
-							<?php foreach($resultado as $row){ ?>
-						<div class="col">
-						  <div class="card">
-							<img src="Backend/imagenes2/<?php echo $row ['imagen']; ?>" class="card-img-top" alt="...">
-							<div class="card-body">
-							  <h5 class="card-title"><strong><?php echo $row['nombre']; ?> </strong></h5>
-				  
-							</div>
-						
-						  </div>
-						  <?php }?>  
-						</div>
-				</div> 
-			</div>
-			
-		</div>
+            <div class="wrap1">
+  <h1>Administrar Categorías</h1>
+  <form id="categoryForm" enctype="multipart/form-data">
+      <input type="text" id="categoryName" placeholder="Nombre de la categoría" required>
+      <input type="file" id="imageUpload" required>
+      <button class="btn" type="submit">Agregar Categoría</button>
+  </form>
+  <div id="categoryList"></div>
+</div>
 
 
 <div class="wrap">
